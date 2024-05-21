@@ -9,7 +9,8 @@ git checkout enoki-support
 
 # install scheduler
 cd $HOME/enoki/enoki-schedulers
-sudo apt install -y clang-11
+sudo apt-get update
+sudo apt-get install -y clang-11
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 sudo snap install rustup --classic
 rustup default nightly
