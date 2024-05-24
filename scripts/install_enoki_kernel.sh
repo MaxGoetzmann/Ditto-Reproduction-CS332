@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./vars.sh
+source vars.sh
 
 sudo sed -i '/^deb-src/s/^# //g' /etc/apt/sources.list
 sudo apt-get update # refresh sources.list changes

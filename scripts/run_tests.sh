@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./vars.sh
+source vars.sh
 
 # Run perf benchmark
 cd $HOME/enoki/enoki-schedulers/perf_test

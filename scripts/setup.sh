@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./vars.sh
+source vars.sh
 
 # Verify
 echo ""
@@ -32,6 +32,13 @@ cd ..
 
 make
 sudo mount -t ghost ghost /sys/fs/ghost/
-sudo insmod kernel/enoki_wfq.ko
 
-# run tests
+# Install enoki kernel module manually (VM freezes and needs hardboot when using insmod)
+KERNEL_MODS=/lib/modules/5.11.0-custom/
+sudo cp kernel/enoki_wfq.ko $KERNEL_MODS/kernel/enoki_wfq.ko
+echo "kernel/enoki_wfq.ko" | sudo tee -a $KERNEL_MODS/modules.dep
+sudo depmod
+
+# Install perf
+cd $HOME/enoki/enoki-kernel
+sudo make -C tools/perf install
