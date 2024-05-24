@@ -6,7 +6,7 @@ source ./vars.sh
 KERNEL_VERSION="5.11.0-$KERNEL_NUM"
 
 # Install the kernel image and headers
-sudo apt install -y linux-image-${KERNEL_VERSION}-generic linux-headers-${KERNEL_VERSION}-generic
+sudo apt-get install -y linux-image-${KERNEL_VERSION}-generic linux-headers-${KERNEL_VERSION}-generic
 
 # Check if GRUB_TIMEOUT_STYLE is set to 'menu' in /etc/default/grub
 if ! grep -q '^GRUB_TIMEOUT_STYLE=menu' /etc/default/grub; then
